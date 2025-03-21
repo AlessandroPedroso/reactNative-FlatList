@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
+import Pessoa from "./src/Pessoa";
 
 export default function App() {
   const [feed, setFeed] = useState([
@@ -36,7 +37,6 @@ export default function App() {
   ]);
   return (
     //para usar uma key no FlatList usar o keyExtractor={(item)=> item._id}
-
     <View style={styles.container}>
       <FlatList
         showsVerticalScrollIndicator={false}
@@ -49,25 +49,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 100,
     flex: 1,
   },
-  areaPessoa: {
-    backgroundColor: "#121212",
-    height: 200,
-    marginBottom: 15,
-  },
-  textoPessoa: {
-    color: "#FFF",
-    fontSize: 20,
-  },
 });
-
-function Pessoa(props) {
-  return (
-    <View style={styles.areaPessoa}>
-      <Text style={styles.textoPessoa}>{props.data.nome}</Text>
-      <Text style={styles.textoPessoa}>{props.data.idade}</Text>
-      <Text style={styles.textoPessoa}>{props.data.email}</Text>
-    </View>
-  );
-}
